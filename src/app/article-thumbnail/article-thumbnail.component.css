@@ -1,0 +1,11 @@
+.article-thumbnail {
+  padding: 0 10px 10px 10px;
+}
+
+.article-thumbnail::after {
+  content: '';
+  border-bottom: 1px solid #d1d1d1;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}

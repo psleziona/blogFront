@@ -1,0 +1,60 @@
+.menu-img {
+  width: 100%;
+}
+
+header {
+  font-size: 0;
+}
+
+header h1 {
+  position: absolute;
+  top: 124px;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  color: #1f3e50;
+}
+
+header button {
+  height: 100%;
+  padding: 0 40px;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #22394696;
+  margin: 0;
+}
+
+.nav__links {
+  padding: 0;
+  list-style-type: none;
+  margin: 0 auto;
+  width: 73%;
+}
+
+.auth-links {
+  float: right;
+}
+
+.nav__links li {
+  display: inline-block;
+}
+
+.nav__links li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #e7e7e7;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav__links li a:hover {
+  color: #e3e3e3;
+  background-color: #3e43459e;
+  transition: linear 0.3s;
+  cursor: pointer;
+}

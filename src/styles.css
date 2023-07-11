@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Forum-Regular';
+  src: url("~src/assets/fonts/Forum-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("~src/assets/fonts/Lato-Regular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(180deg, #d5dfe966, transparent);
+}
+
+.menu-bar {
+  width: 100%;
+  background-color: #ffb156;
+  height: 100px;
+}
+
+.container {
+  width: 73%;
+  margin: 0 auto;
+}
