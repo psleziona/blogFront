@@ -1,3 +1,8 @@
+:host {
+  flex: 0 1 auto;
+  display: block;
+}
+
 .menu-img {
   width: 100%;
 }
@@ -32,7 +37,7 @@ nav {
   padding: 0;
   list-style-type: none;
   margin: 0 auto;
-  width: 73%;
+  width: 1400px;
 }
 
 .auth-links {

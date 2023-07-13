@@ -14,7 +14,15 @@ export class ArticleService {
   });
   constructor(private http: HttpClient) { }
 
-  getArticles() : Observable<Article[]> {
-    return this.http.get<Article[]>(this.articleApiUrl, {headers: this.headers});
+  getArticles() : Observable<any> {
+    return this.http.get<any>(this.articleApiUrl, {headers: this.headers});
+  }
+
+  getArticle(idArticle: number) : Observable<Article> {
+    return this.http.get<Article>(this.articleApiUrl + "/" + idArticle, {headers: this.headers});
+  }
+
+  addArticle(article: Article) {
+    return this.http.post(this.articleApiUrl, article, {headers: this.headers}).subscribe();
   }
 }

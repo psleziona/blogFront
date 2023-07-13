@@ -1,0 +1,8 @@
+<form (submit)="submitArticle()" [formGroup]="newArticleForm">
+  <label for="title">Tytuł</label>
+  <input type="text" id="title" formControlName="title">
+
+  <label for="text">Zawartość</label>
+  <textarea id="text" formControlName="text"></textarea>
+  <button type="submit">Dodaj</button>
+</form>

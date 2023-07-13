@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  flex: 0 1 50px;
+  background-color: #22394696;
+}
+
+.content {
+  width: 1400px;
+  margin: 0 auto;
+  color: white;
+  padding: 10px 0;
+}

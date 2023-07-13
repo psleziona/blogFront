@@ -12,10 +12,14 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(180deg, #d5dfe966, transparent);
+  /*background: linear-gradient(180deg, #d5dfe966, transparent);*/
 }
 
 .menu-bar {
@@ -25,6 +29,7 @@ body {
 }
 
 .container {
-  width: 73%;
+  width: 1400px;
   margin: 0 auto;
+  flex: 1 1 auto;
 }

@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FooterComponent } from './footer/footer.component';
+import { AddArticleComponent } from './add-article/add-article.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import {HttpClientModule} from "@angular/common/http";
     ArticlesComponent,
     LoginComponent,
     RegisterComponent,
-    ArticleThumbnailComponent
+    ArticleThumbnailComponent,
+    FooterComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

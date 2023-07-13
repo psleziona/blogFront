@@ -3,11 +3,13 @@ import {Rate} from "./Rate";
 import {Comment} from "./Comment";
 
 export interface Article {
-  idArticle: number,
+  idArticle?: number,
   title: string,
   text?: string,
   creationTime?: string,
   author?: User,
   comments?: Comment[],
-  articleRates?: Rate[]
+  articleRates?: Rate[],
+  averageRate?: number,
+  image?: any
 }

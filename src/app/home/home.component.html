@@ -1,15 +1,9 @@
 <section>
-  <div id="popular">
-    <h2>Popularne</h2>
-    <app-article-thumbnail
-      *ngFor="let article of articles"
-      [article]="article"
-    ></app-article-thumbnail>
+  <div class="buttons">
+    <a routerLink="/addArticle" id="addArticle">Dodaj</a>
   </div>
-  <div id="articles">
-    <h2>Ostatnie artykuły</h2>
-  </div>
-  <div id="random">
-    <h2>Losowe</h2>
-  </div>
+  <app-article-thumbnail
+    *ngFor="let article of articles"
+    [article]="article"
+  ></app-article-thumbnail>
 </section>

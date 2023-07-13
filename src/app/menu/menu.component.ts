@@ -11,7 +11,6 @@ export class MenuComponent {
 
   logout() {
     this.isAuth = false;
-    console.log('lo');
   }
 
   @HostListener('window:scroll', ['$event'])
