@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from "../Article";
 import {Comment} from "../Comment";
-import {ArticleService} from "../article.service";
+import {ArticleService} from "../_services/article.service";
+import {AuthService} from "../_services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,10 @@ import {ArticleService} from "../article.service";
 })
 export class HomeComponent {
   articles: Article[] | undefined;
-  constructor(private articleService: ArticleService) {}
+  constructor(private articleService: ArticleService, private authService: AuthService) {}
 
   ngOnInit() {
+    // this.authService.login();
     this.articleService.getArticles()
       .subscribe(articles => {
         this.articles = articles.content;

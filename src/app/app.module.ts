@@ -11,10 +11,11 @@ import { ArticlesComponent } from './articles/articles.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { FooterComponent } from './footer/footer.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./_interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

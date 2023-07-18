@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ArticleService} from "../article.service";
+import {ArticleService} from "../_services/article.service";
 import {Article} from "../Article";
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {ArticleService} from "../article.service";
+import {ArticleService} from "../_services/article.service";
 import {Article} from "../Article";
 import {ActivatedRoute} from "@angular/router";
 

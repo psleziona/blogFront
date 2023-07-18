@@ -1,4 +1,6 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
+import {AuthService} from "../_services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +9,20 @@ import {Component, HostListener} from '@angular/core';
 })
 export class MenuComponent {
   imageSrc = '../assets/images/bar.jpg';
-  isAuth = true;
+  isAuth = false;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
+      this.isAuth = isLoggedIn;
+    })
+  }
 
   logout() {
+    localStorage.clear();
     this.isAuth = false;
+    this.router.navigateByUrl("/");
   }
 
   @HostListener('window:scroll', ['$event'])
