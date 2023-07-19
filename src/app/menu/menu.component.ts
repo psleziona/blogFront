@@ -22,7 +22,7 @@ export class MenuComponent {
   logout() {
     localStorage.clear();
     this.isAuth = false;
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("/", {replaceUrl: true});
   }
 
   @HostListener('window:scroll', ['$event'])

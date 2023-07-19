@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Article} from "../Article";
+import {Article} from "../_model/Article";
 
 @Component({
   selector: 'app-article-thumbnail',

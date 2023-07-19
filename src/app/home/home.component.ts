@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from "../Article";
-import {Comment} from "../Comment";
+import {Article} from "../_model/Article";
+import {Comment} from "../_model/Comment";
 import {ArticleService} from "../_services/article.service";
 import {AuthService} from "../_services/auth.service";
+import {fromEvent, of, scan, Subject} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,16 @@ import {AuthService} from "../_services/auth.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  articles: Article[] | undefined;
-  constructor(private articleService: ArticleService, private authService: AuthService) {}
+  numbers$ = of(1,2,3,4,5);
+  x : Subject<number> = new Subject<number>();
+  d() {
+    this.x.next(1);
+  }
 
   ngOnInit() {
-    // this.authService.login();
-    this.articleService.getArticles()
-      .subscribe(articles => {
-        this.articles = articles.content;
-      });
+    // this.numbers$
+    //   .pipe(scan((acc, next) => acc + next, 0))
+    //   .subscribe(res => console.log(res))
+    this.x.subscribe(r => console.log(r))
   }
 }

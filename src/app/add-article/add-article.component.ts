@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ArticleService} from "../_services/article.service";
-import {Article} from "../Article";
+import {Article} from "../_model/Article";
 
 @Component({
   selector: 'app-add-article',

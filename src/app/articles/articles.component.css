@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+section {
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 15px;
+}
+
+#addArticle {
+  display: inline-block;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  background-color: #1f3e50bf;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: linear 0.3s;
+  border: 1px solid #1f3e50bf;
+}
+
+#addArticle:hover {
+  color: #1f3e50bf;
+  background-color: white;
+  border: 1px solid #1f3e50bf;
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
+import {User} from "../_model/User";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class AuthService {
         this.router.navigateByUrl('/');
       }
     );
+  }
+
+  register(user: User) {
+    this.http.post<User>(this.authUrl + "/register", user).subscribe(
+
+    )
   }
 
 }

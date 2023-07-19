@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./_interceptors/auth.interceptor";
+import { PagelinksComponent } from './pagelinks/pagelinks.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AuthInterceptor} from "./_interceptors/auth.interceptor";
     RegisterComponent,
     ArticleThumbnailComponent,
     FooterComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    PagelinksComponent
   ],
   imports: [
     BrowserModule,

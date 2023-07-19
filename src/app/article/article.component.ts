@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {ArticleService} from "../_services/article.service";
-import {Article} from "../Article";
+import {Article} from "../_model/Article";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
