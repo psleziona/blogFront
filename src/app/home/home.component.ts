@@ -3,7 +3,8 @@ import {Article} from "../_model/Article";
 import {Comment} from "../_model/Comment";
 import {ArticleService} from "../_services/article.service";
 import {AuthService} from "../_services/auth.service";
-import {fromEvent, of, scan, Subject} from "rxjs";
+import {fromEvent, interval, map, of, scan, startWith, Subject, tap} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,37 @@ import {fromEvent, of, scan, Subject} from "rxjs";
 export class HomeComponent {
   numbers$ = of(1,2,3,4,5);
   x : Subject<number> = new Subject<number>();
+
+  fileName = '';
+
+  constructor(private articleService: ArticleService) {}
+
+  // @ts-ignore
+  onFileSelected(event) {
+
+    const file:File = event.target.files[0];
+    if (file) {
+      this.fileName = file.name;
+      let bytes;
+      file.stream().getReader().read()
+        .then(result => {
+          if(!result.done) {
+
+            bytes = new Uint8Array(result.value);
+            const binaryString = String.fromCharCode(...bytes);
+            const base64String = btoa(binaryString);
+            let art: Article = {
+              title: "dd",
+              image: base64String
+            }
+            console.log(art);
+            this.articleService.addArticle(art);
+          }
+        })
+        .catch(err => console.log(err))
+
+    }
+  }
   d() {
     this.x.next(1);
   }
@@ -22,5 +54,11 @@ export class HomeComponent {
     //   .pipe(scan((acc, next) => acc + next, 0))
     //   .subscribe(res => console.log(res))
     this.x.subscribe(r => console.log(r))
+    // this.fib$.subscribe(console.log)
   }
+
+  fib$ = interval(1000).pipe(
+    scan(([a,b]) => [b, a + b], [0,1]),
+    map(([,n]) => n)
+  )
 }
