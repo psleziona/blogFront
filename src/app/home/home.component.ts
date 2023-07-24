@@ -5,6 +5,7 @@ import {ArticleService} from "../_services/article.service";
 import {AuthService} from "../_services/auth.service";
 import {fromEvent, interval, map, of, scan, startWith, Subject, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {ImagesService} from "../_services/images.service";
 
 @Component({
   selector: 'app-home',
@@ -16,8 +17,9 @@ export class HomeComponent {
   x : Subject<number> = new Subject<number>();
 
   fileName = '';
+  tyg: any;
 
-  constructor(private articleService: ArticleService) {}
+  constructor(private articleService: ArticleService, private imageService: ImagesService) {}
 
   // @ts-ignore
   onFileSelected(event) {
@@ -50,10 +52,15 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+    this.imageService.getImage('scre.png').subscribe(
+      img => this.tyg = URL.createObjectURL(img)
+    )
+
+
     // this.numbers$
     //   .pipe(scan((acc, next) => acc + next, 0))
     //   .subscribe(res => console.log(res))
-    this.x.subscribe(r => console.log(r))
+    // this.x.subscribe(r => console.log(r))
     // this.fib$.subscribe(console.log)
   }
 

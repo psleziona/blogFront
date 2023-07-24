@@ -3,6 +3,7 @@ import {ArticleService} from "../_services/article.service";
 import {Article} from "../_model/Article";
 import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {ImagesService} from "../_services/images.service";
 
 @Component({
   selector: 'app-article',
@@ -11,17 +12,23 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 })
 export class ArticleComponent {
   article: Article | undefined;
-  img? :SafeResourceUrl;
+  img: any;
   route: ActivatedRoute = inject(ActivatedRoute);
-  constructor(private articleService: ArticleService, private sanitizer: DomSanitizer) {
+  constructor(private articleService: ArticleService, private imageService: ImagesService) {
     const idArticle =  Number(this.route.snapshot.params['id']);
     this.articleService.getArticle(idArticle).subscribe(
       article => {
         this.article = article;
-        this.img = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${this.article?.image}`);
+        this.getArticleImage(article.image);
       }
     )
 
+  }
+
+  getArticleImage(fileName: String) {
+    this.imageService.getImage(fileName).subscribe(
+      img => this.img = URL.createObjectURL(img)
+    )
   }
 
 }

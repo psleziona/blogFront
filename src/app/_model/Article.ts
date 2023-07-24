@@ -11,5 +11,5 @@ export interface Article {
   comments?: Comment[],
   articleRates?: Rate[],
   averageRate?: number,
-  image?: string
+  image: string
 }

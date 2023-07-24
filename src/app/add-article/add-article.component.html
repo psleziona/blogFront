@@ -5,4 +5,7 @@
   <label for="text">Zawartość</label>
   <textarea id="text" formControlName="text"></textarea>
   <button type="submit">Dodaj</button>
+
+  <input (change)="onImageUpload($event)" type="file">
+
 </form>
