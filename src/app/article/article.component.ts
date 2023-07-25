@@ -14,7 +14,9 @@ export class ArticleComponent {
   article: Article | undefined;
   img: any;
   route: ActivatedRoute = inject(ActivatedRoute);
-  constructor(private articleService: ArticleService, private imageService: ImagesService) {
+  constructor(private articleService: ArticleService, private imageService: ImagesService) {}
+
+  ngOnInit() {
     const idArticle =  Number(this.route.snapshot.params['id']);
     this.articleService.getArticle(idArticle).subscribe(
       article => {
@@ -22,7 +24,6 @@ export class ArticleComponent {
         this.getArticleImage(article.image);
       }
     )
-
   }
 
   getArticleImage(fileName: String) {

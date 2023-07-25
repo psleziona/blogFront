@@ -22,14 +22,16 @@ export class AddArticleComponent {
     let article : Article = {
       title: this.newArticleForm.value?.title ?? '',
       text: this.newArticleForm.value?.text ?? '',
-      image: this.uploadImage.name ?? ''
+      image: this.uploadImage?.name ?? ''
     }
 
-    const image = new FormData();
-    image.append("file", this.uploadImage, this.uploadImage.name);
+    if(this.uploadImage) {
+      const image = new FormData();
+      image.append("file", this.uploadImage, this.uploadImage.name);
+      this.imageService.saveImage(image);
+    }
 
     this.articleService.addArticle(article);
-    this.imageService.saveImage(image);
   }
 
   public onImageUpload(event: any) {

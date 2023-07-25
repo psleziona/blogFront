@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Article} from "../_model/Article";
 import {Router} from "@angular/router";
@@ -20,10 +20,9 @@ export class ArticleService {
   }
 
   addArticle(article: Article) {
-    return this.http.post(this.articleApiUrl, article).subscribe(
+    return this.http.post(this.articleApiUrl, article, { observe: 'response'}).subscribe(
       x => {
-        console.log(x);
-        //this.router.navigateByUrl('/');
+        console.log(x.headers);
       }
     );
   }

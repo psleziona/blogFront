@@ -9,7 +9,7 @@ export class CommentsService {
   private commentApiUrl = 'http://localhost:8080/api/comments';
   constructor(private http: HttpClient) { }
 
-  addComment(comment: Comment) {
-    this.http.post(this.commentApiUrl, comment).subscribe();
+  addComment(comment: Comment, idArticle: number) {
+    this.http.post(`${this.commentApiUrl}/${idArticle}`, comment).subscribe();
   }
 }

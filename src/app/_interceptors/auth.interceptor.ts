@@ -22,6 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(cloned).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error && error.status === 403) {
+            localStorage.clear();
             this.authService.isLoggedInSubject.next(false);
           }
           return throwError(() => new Error(error.message || 'An unknown error occurred'));
