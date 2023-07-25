@@ -3,7 +3,7 @@ import {Article} from "./Article";
 import {Rate} from "./Rate";
 
 export interface Comment {
-  idComment: number,
+  idComment?: number,
   text?: string,
   creationTime?: string,
   author?: User,

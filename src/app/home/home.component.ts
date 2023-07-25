@@ -52,9 +52,9 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    this.imageService.getImage('scre.png').subscribe(
-      img => this.tyg = URL.createObjectURL(img)
-    )
+    // this.imageService.getImage('scre.png').subscribe(
+    //   img => this.tyg = URL.createObjectURL(img)
+    // )
 
 
     // this.numbers$

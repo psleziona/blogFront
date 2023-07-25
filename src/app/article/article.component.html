@@ -1,4 +1,9 @@
 <img [src]="img">
 <h3>{{ article?.title }}</h3>
 <p>{{ article?.text }}</p>
-
+<app-add-comment></app-add-comment>
+<p>Komentarze</p>
+<app-comment
+  *ngFor="let comment of article?.comments"
+  [comment]="comment"
+></app-comment>

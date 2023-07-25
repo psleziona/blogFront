@@ -14,7 +14,9 @@ export class MenuComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    console.log('dupa');
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
+      console.log('xx');
       this.isAuth = isLoggedIn;
     })
   }

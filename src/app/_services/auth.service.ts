@@ -9,7 +9,7 @@ import {User} from "../_model/User";
 })
 export class AuthService {
   private authUrl = 'http://localhost:8080/api';
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  public isLoggedInSubject = new BehaviorSubject<boolean>(false);
   public isLogged$ = this.isLoggedInSubject.asObservable();
   constructor(private http: HttpClient, private router: Router) {
     this.isLoggedInSubject.next(localStorage.getItem('token') != null);
@@ -26,9 +26,7 @@ export class AuthService {
   }
 
   register(user: User) {
-    this.http.post<User>(this.authUrl + "/register", user).subscribe(
-
-    )
+    this.http.post<User>(this.authUrl + "/register", user).subscribe()
   }
 
 }

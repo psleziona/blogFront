@@ -17,6 +17,8 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./_interceptors/auth.interceptor";
 import { PagelinksComponent } from './pagelinks/pagelinks.component';
+import { CommentComponent } from './comment/comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PagelinksComponent } from './pagelinks/pagelinks.component';
     ArticleThumbnailComponent,
     FooterComponent,
     AddArticleComponent,
-    PagelinksComponent
+    PagelinksComponent,
+    CommentComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
