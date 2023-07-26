@@ -8,6 +8,7 @@
       <li class="auth-links"><a *ngIf="!isAuth" routerLink="/login">Zaloguj</a></li>
       <li class="auth-links"><a *ngIf="!isAuth" routerLink="/register">Rejestracja</a></li>
       <li class="auth-links"><a *ngIf="isAuth" (click)="logout()">Wyloguj</a></li>
+      <li class="auth-links"><a *ngIf="isAuth" routerLink="/user">Profil</a></li>
     </ul>
   </nav>
   <h1>BLOG</h1>

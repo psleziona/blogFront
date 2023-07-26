@@ -27,9 +27,12 @@ export class ArticleComponent {
   }
 
   getArticleImage(fileName: String) {
-    this.imageService.getImage(fileName).subscribe(
-      img => this.img = URL.createObjectURL(img)
-    )
+    if(this.article?.image != '') {
+      this.imageService.getImage(fileName).subscribe(
+        img => this.img = URL.createObjectURL(img)
+      )
+    } else
+      this.img = 'https://placehold.co/1000x300';
   }
 
 }

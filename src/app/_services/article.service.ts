@@ -21,8 +21,10 @@ export class ArticleService {
 
   addArticle(article: Article) {
     return this.http.post(this.articleApiUrl, article, { observe: 'response'}).subscribe(
-      x => {
-        console.log(x.headers);
+      response => {
+        const temp = response.headers.get("Location")!.split('/');
+        const articleId = temp[temp.length - 1];
+        this.router.navigateByUrl(`/article/${articleId}`);
       }
     );
   }

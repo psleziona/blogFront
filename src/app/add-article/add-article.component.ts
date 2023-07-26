@@ -19,7 +19,7 @@ export class AddArticleComponent {
   constructor(private articleService: ArticleService, private imageService: ImagesService) {}
 
   submitArticle() {
-    let article : Article = {
+    const article : Article = {
       title: this.newArticleForm.value?.title ?? '',
       text: this.newArticleForm.value?.text ?? '',
       image: this.uploadImage?.name ?? ''
@@ -34,7 +34,7 @@ export class AddArticleComponent {
     this.articleService.addArticle(article);
   }
 
-  public onImageUpload(event: any) {
+  onImageUpload(event: any) {
     this.uploadImage = event.target.files[0];
   }
 }

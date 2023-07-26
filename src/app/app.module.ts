@@ -19,6 +19,8 @@ import {AuthInterceptor} from "./_interceptors/auth.interceptor";
 import { PagelinksComponent } from './pagelinks/pagelinks.component';
 import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import {AuthGuard} from "./_guards/auth.guard";
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     AddArticleComponent,
     PagelinksComponent,
     CommentComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

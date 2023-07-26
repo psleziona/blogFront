@@ -21,8 +21,11 @@ export class ArticleThumbnailComponent {
   constructor(private imageService: ImagesService) {}
 
   ngOnInit() {
-    this.imageService.getImage(this.article.image).subscribe(
-      img => this.img =  URL.createObjectURL(img)
-    )
+    if(this.article.image != '') {
+      this.imageService.getImage(this.article.image).subscribe(
+        img => this.img =  URL.createObjectURL(img)
+      )
+    } else
+      this.img = 'https://placehold.co/1000x300';
   }
 }
