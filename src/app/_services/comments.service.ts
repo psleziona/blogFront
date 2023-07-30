@@ -10,6 +10,6 @@ export class CommentsService {
   constructor(private http: HttpClient) { }
 
   addComment(comment: Comment, idArticle: number) {
-    this.http.post(`${this.commentApiUrl}/${idArticle}`, comment).subscribe();
+    return this.http.post(`${this.commentApiUrl}/${idArticle}`, comment);
   }
 }

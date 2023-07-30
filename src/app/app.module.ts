@@ -21,6 +21,9 @@ import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import {AuthGuard} from "./_guards/auth.guard";
 import { UserComponent } from './user/user.component';
+import { RatePanelComponent } from './rate-panel/rate-panel.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RateStartComponent } from './rate-start/rate-start.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +40,17 @@ import { UserComponent } from './user/user.component';
     PagelinksComponent,
     CommentComponent,
     AddCommentComponent,
-    UserComponent
+    UserComponent,
+    RatePanelComponent,
+    RateStartComponent
   ],
   imports: [
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

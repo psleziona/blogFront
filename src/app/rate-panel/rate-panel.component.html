@@ -1,0 +1,8 @@
+<app-rate-start
+  [markStar]="currentRate"
+  (chooseRate)="onClick($event)"
+  (onHover)="onHover($event)"
+  *ngFor="let i of values"
+  [rateValue]="i">
+</app-rate-start>
+

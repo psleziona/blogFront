@@ -1,0 +1,8 @@
+:host {
+  color: yellow;
+}
+
+:host:hover {
+  color: #1f3e50;
+  cursor: pointer;
+}

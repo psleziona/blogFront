@@ -21,6 +21,8 @@ export class AddCommentComponent {
     const comment:Comment = {
       text: text
     }
-    this.commentService.addComment(comment, this.idArticle!);
+    this.commentService.addComment(comment, this.idArticle!).subscribe(
+      response => window.location.reload()
+    );
   }
 }

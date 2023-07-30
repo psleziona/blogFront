@@ -1,5 +1,12 @@
+<div *ngIf="article$ | async as articlex">
+  {{ getArticleImage(articlex.image) }}
+
+</div>
+
+
 <img [src]="img" alt="article-image">
 <h3>{{ article?.title }}</h3>
+<app-rate-panel [currentRate]="8"></app-rate-panel>
 <p>{{ article?.text }}</p>
 <app-add-comment [idArticle]="article?.idArticle"></app-add-comment>
 <p>Komentarze</p>
