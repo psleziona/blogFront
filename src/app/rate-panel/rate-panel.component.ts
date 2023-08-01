@@ -13,7 +13,7 @@ export class RatePanelComponent {
   markRate: number;
 
   onHover(value: number) {
-    this.markRate = value;
+    this.currentRate = value;
   }
 
   onClick(value: number) {

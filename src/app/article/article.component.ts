@@ -5,7 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ImagesService} from "../_services/images.service";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-article',
@@ -14,7 +14,6 @@ import {Observable} from "rxjs";
 })
 export class ArticleComponent {
   article$: Observable<Article>;
-  article: Article | undefined;
   img: any;
   route: ActivatedRoute = inject(ActivatedRoute);
 
@@ -22,17 +21,13 @@ export class ArticleComponent {
 
   ngOnInit() {
     const idArticle =  Number(this.route.snapshot.params['id']);
-    this.article$ = this.articleService.getArticle(idArticle);
-    // this.articleService.getArticle(idArticle).subscribe(
-    //   article => {
-    //     this.article = article;
-    //     this.getArticleImage(article.image);
-    //   }
-    // )
+    this.article$ = this.articleService.getArticle(idArticle).pipe(
+      tap(article => this.getArticleImage(article.image))
+    );
   }
 
   getArticleImage(fileName: String) {
-    if(this.article?.image != '') {
+    if(fileName != '') {
       this.imageService.getImage(fileName).subscribe(
         img => this.img = URL.createObjectURL(img)
       )

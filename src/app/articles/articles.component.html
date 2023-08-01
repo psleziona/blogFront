@@ -3,7 +3,7 @@
     <a routerLink="/addArticle" id="addArticle">Dodaj</a>
   </div>
   <app-article-thumbnail
-    *ngFor="let article of articles"
+    *ngFor="let article of articles$ | async"
     [article]="article"
   ></app-article-thumbnail>
 </section>

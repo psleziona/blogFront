@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Article} from "../_model/Article";
 import {ArticleService} from "../_services/article.service";
 import {Page} from "../_model/Page";
+import {map, Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-articles',
@@ -9,21 +10,14 @@ import {Page} from "../_model/Page";
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent {
-  articles?: Article[];
+  articles$: Observable<Article[]>;
   page? : Page;
 
   constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
-    this.articleService.getArticles().subscribe(
-      response => {
-        this.articles = response.content;
-        this.page =  {
-          pageNumber: 0,
-          totalPages: 5
-        }
-      }
-    )
+    this.articles$ = this.articleService.getArticles().pipe(
+      map((x:any) => x.content)
+    );
   }
-
 }
