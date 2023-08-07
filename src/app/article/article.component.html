@@ -2,13 +2,12 @@
   <img [src]="img" alt="article-image">
   <h3>{{ article.title }}</h3>
   <app-rate-panel [currentRate]="8"></app-rate-panel>
-  <p>{{ article.text }}</p>
+  <div>{{ article.text }}</div>
   <app-add-comment [idArticle]="article.idArticle"></app-add-comment>
   <p>Komentarze</p>
-  <app-comment
-    *ngFor="let comment of article.comments"
-    [comment]="comment"
-  ></app-comment>
+  <ng-container *ngIf="articleComments$ | async as comments">
+    <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+  </ng-container>
 </div>
 <ng-template #nonAuthInfo>
   <h1>Artykuł nie istnieje</h1>

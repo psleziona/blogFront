@@ -3,7 +3,7 @@ import {Article} from "../_model/Article";
 import {Comment} from "../_model/Comment";
 import {ArticleService} from "../_services/article.service";
 import {AuthService} from "../_services/auth.service";
-import {fromEvent, interval, map, of, scan, startWith, Subject, tap} from "rxjs";
+import {fromEvent, interval, map, Observable, of, scan, startWith, Subject, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ImagesService} from "../_services/images.service";
 
@@ -51,11 +51,22 @@ export class HomeComponent {
     this.x.next(1);
   }
 
+
   ngOnInit() {
+
     // this.imageService.getImage('scre.png').subscribe(
     //   img => this.tyg = URL.createObjectURL(img)
     // )
-
+    const observable: Observable<number> = new Observable((subscriber) => {
+      subscriber.next(4);
+      subscriber.next(9);
+      subscriber.next(5);
+    });
+    observable.pipe(
+      scan((t1:number,t2:number) => t1 + 4)
+    ).subscribe(
+      x => console.log(x)
+    )
 
     // this.numbers$
     //   .pipe(scan((acc, next) => acc + next, 0))

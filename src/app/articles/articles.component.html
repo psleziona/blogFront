@@ -1,10 +1,14 @@
-<section>
+<section *ngIf="articles$ | async as articles; else nonAuth">
   <div class="buttons">
     <a routerLink="/addArticle" id="addArticle">Dodaj</a>
   </div>
   <app-article-thumbnail
-    *ngFor="let article of articles$ | async"
+    *ngFor="let article of articles"
     [article]="article"
   ></app-article-thumbnail>
-</section>
+
 <app-pagelinks *ngIf="page" [page]="page"></app-pagelinks>
+</section>
+<ng-template #nonAuth>
+  <h1>Zaloguj się</h1>
+</ng-template>
